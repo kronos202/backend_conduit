@@ -30,9 +30,13 @@ import googleConfig from 'src/config/google/google.config';
     PrismaModule.forRoot({
       isGlobal: true,
     }),
-    CacheModule.register({
-      store: redisStore,
-      ttl: 60 * 1000,
+    CacheModule.registerAsync({
+      useFactory: async () => ({
+        store: await redisStore({
+          url: 'redis://default:fAJNbXrRBlBndNWDxuVnXimBzBsIdRUo@monorail.proxy.rlwy.net:45737',
+          ttl: 60 * 1000,
+        }),
+      }),
     }),
   ],
   providers: [
