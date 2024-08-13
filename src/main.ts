@@ -20,6 +20,8 @@ async function bootstrap() {
     bufferLogs: true,
     bodyParser: true,
   });
+  console.log('DATABASE_URL', process.env.DATABASE_URL);
+
   app.enableCors();
   const configService = app.get(ConfigService<AllConfigType>);
   const { app: appConfig } = getConfig(configService);
