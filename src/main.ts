@@ -21,7 +21,7 @@ async function bootstrap() {
     bodyParser: true,
   });
   app.enableCors({
-    origin: '',
+    origin: 'https://conduitfrontend-production.up.railway.app',
   });
   const configService = app.get(ConfigService<AllConfigType>);
   const { app: appConfig } = getConfig(configService);
