@@ -18,10 +18,11 @@ async function bootstrap() {
       instance: logger,
     }),
     bufferLogs: true,
-    cors: true,
     bodyParser: true,
   });
-
+  app.enableCors({
+    origin: '',
+  });
   const configService = app.get(ConfigService<AllConfigType>);
   const { app: appConfig } = getConfig(configService);
 

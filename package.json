@@ -13,6 +13,7 @@
   },
   "scripts": {
     "build": "nest build",
+    "prebuild": "concurrently \"npm run build\" \"npm run db:seed\"",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
